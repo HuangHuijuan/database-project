@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Branch Query</title>
+<link href="./css/bootstrap.css" rel="stylesheet" type="text/css"
+	media="all">
+<link href="./css/style.css" rel="stylesheet" type="text/css"
+	media="all" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Questrial'
+	rel='stylesheet' type='text/css'>
+<link href="./css/popuo-box.css" rel="stylesheet" type="text/css"
+	media="all" />
+<script src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/move-top.js"></script>
+<script type="text/javascript" src="./js/easing.js"></script>
+</head>
+
+<body>
+    <div class="design">
+		<div class="container">
+			<h2>choose the table and look up information</h2>
+			<div class="tabs-box">
+			<ul class="tabs-menu">
+				<li class="active1"><a href="#tab1">Property</a></li>
+				<li><a href="#tab2">Client</a></li>
+				<li><a href="#tab3">Lease</a></li>
+				<li><a href="#tab4">Viewing</a></li>
+			</ul><div class="tab-grids">
+				<div id="tab1" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		  <h3>Property</h3>
+		<br><br><br> 
+          <form name="ps" onsubmit="return false">
+        <input type="submit" value="Search" onclick="click1_1()" class="search">
+        
+        <div class="col-md-3">
+        <select class="select_field" id="select_field" name="select_field"><option value="propertyno">propertyNo</option><option value="street">street</option><option value="city">city</option>
+        <option value="postcode">postcode</option><option value="type">type</option><option value="rooms">rooms</option>
+        <option value="rent">rent</option><option value="ownerno">ownerNo</option><option value="staffno">staffNo</option>
+        <option value="branchno">branchNo</option></select>
+        </div>
+       
+        <div class="col-md-6">
+        
+        <input type="text" id="fvalue" name="fvalue" class="text" value="Enter a value" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter a value';}">
+               	      
+		</div>
+        
+		<div id="property" >
+		            
+        </div>
+        </form>  
+        </div> 
+        </div>
+        </div>
+ 
+</div>
+<script type="text/javascript">
+		function click1_1() {
+		    var select_field=document.getElementById("select_field").value;
+	        var fvalue=document.getElementById("fvalue").value;
+	        if(select_field=="Enter a value")	 
+	        {
+	          alert("Please enter a value for search!");
+	          return false;
+	        }     
+			var xmlhttp;
+			if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				
+			}
+			xmlhttp.open("GET", "servlet/queryServlet?select_field=" + select_field+"&&fvalue="+fvalue+"&&table=propertyforrent", true);
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				if(xmlhttp.responseText=="No relative record!")
+				   {
+				      alert("No relative record!");
+				      return false;
+				   }
+					document.getElementById("property").innerHTML = xmlhttp.responseText;
+					var property=document.getElementById("property").innerHTML;
+				}
+			};
+			
+			xmlhttp.send(null);
+		}
+		function click1_2(){
+		    var propertyno=ps.propertyno.value; 
+		    if(propertyno=="")
+		    {
+		    alert("Please choose a property!");
+		    return false;
+		    }
+		    var xmlhttp;
+			if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				
+			}
+			xmlhttp.open("GET", "servlet/deleteServlet?propertyno=" + propertyno+"&&table=property", true);
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				if(xmlhttp.responseText=="Delete success!")
+				   {
+				      alert("Delete success!");
+				      click1_1();	
+				      return;		      
+				   }
+				//	document.getElementById("property").innerHTML = xmlhttp.responseText;
+				
+				alert(xmlhttp.responseText);				
+				
+				}
+			};
+			
+			xmlhttp.send(null);
+		}
+		function click1_3(){
+		    var propertyno=ps.propertyno.value; 
+		    if(propertyno=="")
+		    {
+		    alert("Please choose a property!");
+		    return false;
+		    }
+		    var xmlhttp;
+			if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				
+			}
+			xmlhttp.open("GET", "servlet/updateServlet?propertyno=" + propertyno+"&&table=property", true);
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					document.getElementById("property").innerHTML = xmlhttp.responseText;
+				}
+			};
+			
+			xmlhttp.send(null);
+		}
+		function click1_4(){
+		  //  alert("hello");
+		    var propertyno=document.getElementById("propertyno_1").value;		    
+			var street=document.getElementById("street").value;
+			var city=document.getElementById("city").value;
+			var postcode=document.getElementById("postcode").value;
+			var type=document.getElementById("type").value;
+			var rooms=document.getElementById("rooms").value;
+			var rent=document.getElementById("rent").value;
+			var ownerno=document.getElementById("ownerno").value;
+			var staffno=document.getElementById("staffno").value;
+			var branchno=document.getElementById("branchno").value;
+			
+			
+			
+		    var xmlhttp;
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		} else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+		}
+
+		xmlhttp.open("POST", "servlet/modifyTable", true);
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			//    alert("shit............");
+				alert( xmlhttp.responseText);
+		//		var property = document.getElementById("property").innerHTML;
+			}
+		};
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+		xmlhttp.send("propertyno=" + propertyno
+				+ "&&street=" + street + "&&city=" + city + "&&postcode="
+				+ postcode + "&&type=" + type + "&&rooms=" + rooms
+				+ "&&rent=" + rent + "&&ownerno=" + ownerno + "&&staffno="
+				+ staffno + "&&branchno=" + branchno+"&&table=property");
+	}
+</script>
+
+
+				<div id="tab2" class="tab-grid">
+				 
+					<div class="contact" id="contact" >
+		<div class="container">
+		  <h3>Client</h3>
+		<br><br><br> 
+          <form name="cs" onsubmit="return false">
+       
+        <input type="submit" value="Search" onclick="click2_1()" class="search">
+        <div class="col-md-3">
+        <select class="select_field" id="select_field1" name="select_field1"><option value="clientno">clientNo</option>
+        <option value="name">clientName</option>
+        <option value="telno">telNo</option><option value="preftype">prefferType</option>
+        <option value="maxrent">maxRent</option></select>
+        </div>
+       
+        <div class="col-md-6">
+        
+        <input type="text" id="fvalue1" name="fvalue1" class="text" value="Enter a value" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter a value';}">
+               	      
+		</div>
+        
+		<div id="client">
+		            
+        </div>
+        </form>  
+        </div>  
+        </div>
+</div>
+<script type="text/javascript">
+function sendmsg(url,divid) {
+		var xmlhttp;
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		} else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+		}
+		
+		xmlhttp.open("GET", url, true);
+		xmlhttp.onreadystatechange = function(){
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var str=xmlhttp.responseText;
+			if ( str== "No relative data!"|| str == "Login first!"||str=="Delete success!" ) {
+				alert(str);
+				return false;
+			}
+			
+			document.getElementById(divid).innerHTML = xmlhttp.responseText;
+		}
+		};
+		xmlhttp.send(null);
+	}
+
+		function click2_1() {
+		    var select_field=document.getElementById("select_field1").value;
+	        var fvalue=document.getElementById("fvalue1").value;
+	        if(select_field=="Enter a value")	 
+	        {
+	          alert("Please enter a value for search!");
+	          return false;
+	        }     
+	        var url="servlet/queryServlet?select_field=" + select_field+"&&fvalue="+fvalue+"&&table=client";
+			sendmsg(url,"client");
+		}
+		function click2_2(){		
+		    var clientno=cs.clientno.value; 
+		    if(clientno=="")
+		    {
+		    alert("Please choose a client");
+		    return false;
+		    }
+		    var xmlhttp;
+			if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				
+			}
+			xmlhttp.open("GET", "servlet/deleteServlet?clientno=" + clientno+"&&table=client", true);
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				if(xmlhttp.responseText=="Delete success!")
+				   {
+				      alert("Delete success!");
+				      click2_1();
+				      return;				      
+				   }				
+				alert(xmlhttp.responseText);							
+				}
+			};		
+			xmlhttp.send(null);
+		}
+		function click2_3(){
+		    var clientno=cs.clientno.value;
+		    if(clientno=="")
+		    {
+		    alert("Please choose a client");
+		    return false;
+		    }
+		  //  alert(clientno);
+		    var url="servlet/updateServlet?clientno=" + clientno+"&&table=client"; 
+		    sendmsg(url,"client");
+		}
+		function click2_4(){
+		  //  alert("hello");
+		    var clientno=document.getElementById("clientno_1").value;		    
+			var name=document.getElementById("name").value;
+			var pref=document.getElementById("pref").value;
+			var max=document.getElementById("max").value;
+			var telno=document.getElementById("telno").value;
+		    var xmlhttp;
+    	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		} else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+		}
+
+		xmlhttp.open("POST", "servlet/modifyTable", true);
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			//    alert("shit............");
+				alert( xmlhttp.responseText);
+		//		var property = document.getElementById("property").innerHTML;
+			}
+		};
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+		xmlhttp.send("clientno=" + clientno
+				+ "&&name=" + name + "&&telno=" + telno + "&&pref="
+				+ pref + "&&max=" + max +"&&table=client");
+	}
+</script>
+
+<div id="tab3" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		  <h3>lease</h3>
+		<br><br><br> 
+          <form name="ls" onsubmit="return false">
+        <input type="submit" value="Search" onclick="click2_1()" class="search">
+        
+        <div class="col-md-3">
+        <select class="select_field" id="select_field2" name="select_field2"><option value="leaseno">leaseNo</option>
+        <option value="clientno">clientNo</option>
+        <option value="paymeth">paymentMethod</option>
+        <option value="idp">isDepositPaid</option><option value="duration">duration</option>
+        <option value="rs">rentStart</option><option value="rf">rentFinish</option>
+        </select>
+        </div>
+       
+        <div class="col-md-6">
+        
+        <input type="text" id="fvalue2" name="fvalue2" class="text" value="Enter a value" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter a value';}">
+               	      
+		</div>
+        
+		<div id="lease" >
+		            
+        </div>
+        </form>  
+        </div>  
+        </div>
+        
+        
+</div>
+
+				<div id="tab4" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		  <h3>Viewing</h3>
+		<br><br><br> 
+          <form name="vs" onsubmit="return false">
+        <input type="submit" value="Search" onclick="click2_1()" class="search">
+        
+        <div class="col-md-3">
+        <select class="select_field" id="select_field3" name="select_field3"><option value="propertyno">propertyNo</option>
+        <option value="clientNo">clientNo</option>
+        <option value="telno">telNo</option><option value="preftype">prefferType</option>
+        <option value="maxrent">maxRent</option></select>
+        </div>
+       
+        <div class="col-md-6">
+        
+        <input type="text" id="fvalue3" name="fvalue3" class="text" value="Enter a value" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter a value';}">
+               	      
+		</div>
+        
+		<div id="viewing" >
+		            
+        </div>
+        </form>  
+        </div>  
+        </div>
+        
+        
+</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+
+		
+		
+        <script>
+			$(document).ready(function() {
+				$("#tab2").hide();
+				$("#tab3").hide();
+				$("#tab4").hide();
+				$(".tabs-menu a").click(function(event){
+					$(this).parent().addClass("active1 a");
+					$(this).parent().siblings().removeClass("active1 a");
+					event.preventDefault();
+					var tab=$(this).attr("href");
+					$(".tab-grid").not(tab).css("display","none");
+					$(tab).fadeIn("slow");
+				});
+				
+			});
+		</script>
+	
+
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Branch Query</title>
+<link href="./css/bootstrap.css" rel="stylesheet" type="text/css"
+	media="all">
+<link href="./css/style.css" rel="stylesheet" type="text/css"
+	media="all" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Questrial'
+	rel='stylesheet' type='text/css'>
+<link href="./css/popuo-box.css" rel="stylesheet" type="text/css"
+	media="all" />
+<script src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/move-top.js"></script>
+<script type="text/javascript" src="./js/easing.js"></script>
+</head>
+
+<body>
+    <div class="design">
+		<div class="container">
+			<h2>choose the table and look up information</h2>
+			<div class="tabs-box">
+			<ul class="tabs-menu">
+				<li class="active1"><a href="#tab1">Property</a></li>
+				<li><a href="#tab2">Client</a></li>
+				<li><a href="#tab3">Viewing</a></li>
+				<li><a href="#tab4">Lease</a></li>
+			</ul><div class="tab-grids">
+				<div id="tab1" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		  <h3>Property</h3>
+		<br><br><br> 
+         
+        <input type="submit" value="Search" onclick="click_1()" class="search">
+        <div class="col-md-9">
+        <form name="ps">
+        <input type="text" name="propertyno" class="text" value="Enter a propertyNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter a propertyNo';}">
+        </form>
+        <h4 id="property"></h>
+        
+        </div>
+        
+       
+        
+     
+        
+       
+				<div class="col-md-4">
+                <h4 id="propertyno"></h>
+                <h4 id="city"></h>
+                <h4 id="type"></h>
+                <h4 id="rent"></h>	
+                <h4 id="staffNo"></h>    				
+							
+									
+			   </div>
+			<div class="col-md-4">
+                <h4 id="street"></h>   					
+				<h4 id="postcode"></h>	
+				<h4 id="rooms"></h>	
+				<h4 id="ownerNo"></h>	
+				<h4 id="branchNo"></h>
+              </div>
+                   
+        
+		</div>	
+        </div>
+</div>
+
+				<div id="tab2" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		  <h3>Client</h3>
+		<br><br><br> 
+        <form> 
+        <div class="col-md-9">
+        <input type="text"  class="text" value="Enter a clientNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter a clientNo';}">
+        </div>
+        <div class="col-md-2">
+        <input type="submit" value="Search" onclick="click_2()">
+        </div>
+        <h4 id="client">
+				<div class="col-md-6">
+            	<h4 id="clientNo"></h>
+                <h4 id="telno"></h>
+                <h4 id="maxrent"></h>	   
+                			
+									
+			   </div>
+			<div class="col-md-6">
+                <h4 id="name"></h>
+                <h4 id="prefertype"></h>
+									
+           </h>
+         </div>       
+        </form>
+		</div>	
+        </div>
+	</div>
+
+				</div>
+<div id="tab3" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		  <h3>Viewing</h3>
+		<br><br><br> 
+        <form> 
+        <div class="col-md-5">
+        <input type="text"  class="text" value="Enter a clientNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter a clientNo';}">
+        </div>
+        <div class="col-md-5">
+        <input type="text"  class="text" value="Enter a propertyNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter a propertyNo';}">
+        </div>
+        <div class="col-md-2">
+        <input type="submit" value="Search" onclick="click_3()">
+        </div>
+				<div class="col-md-6">
+                <h4 id="clientno"></h>
+                <h4 id="viewdate"></h>    				
+							
+			   </div>
+			   <div class="col-md-6">
+                <h4 id="propertyno"></h>
+                <h4 id="comment"></h>    
+							
+									
+               </div>
+                   
+       </form>
+		</div>	
+        </div>
+
+				</div>
+				<div id="tab4" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		   <h3>Lease</h3>
+		<br><br><br> 
+        <form> 
+        <div class="col-md-9">
+        <input type="text"  class="text" value="Enter a leaseNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter a leaseNo';}">
+        </div>
+        <div class="col-md-2">
+        <input type="submit" value="Search" onclick="click_4()">
+        </div>
+				<div class="col-md-6">
+                  <h4 id="leaseno"></h>
+                  <h4 id="propertyno"></h>  
+                  <h4 id="deposit"></h>
+                  <h4 id="rentstart"></h>				
+						
+			   </div>
+			   <div class="col-md-6">
+                  <h4 id="clientno"></h>
+                  <h4 id="method"></h>
+                  <h4 id="duration"></h>
+                  <h4 id="rentfinish"></h>
+							
+               </div>
+                   
+       </form>
+		</div>	
+        </div>
+	</div>
+
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+        <script>
+			$(document).ready(function() {
+				$("#tab2").hide();
+				$("#tab3").hide();
+				$("#tab4").hide();
+				$(".tabs-menu a").click(function(event){
+					$(this).parent().addClass("active1 a");
+					$(this).parent().siblings().removeClass("active1 a");
+					event.preventDefault();
+					var tab=$(this).attr("href");
+					$(".tab-grid").not(tab).css("display","none");
+					$(tab).fadeIn("slow");
+				});
+				
+			});
+		</script>
+	<script type="text/javascript">
+		function click_1() {
+	
+		    var propertyno=ps.propertyno.value;	 
+			var xmlhttp;
+			if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				
+			}
+			xmlhttp.open("GET", "servlet/queryServlet?propertyno=" + propertyno, true);
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					document.getElementById("property").innerHTML = xmlhttp.responseText;
+					var property=document.getElementById("property").innerHTML;
+				}
+			};
+			
+			xmlhttp.send(null);
+		}
+	</script>
+
+
+</body>
+</html>

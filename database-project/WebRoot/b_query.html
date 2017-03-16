@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Branch Query</title>
+<link href="./css/bootstrap.css" rel="stylesheet" type="text/css"
+	media="all">
+<link href="./css/style.css" rel="stylesheet" type="text/css"
+	media="all" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Questrial'
+	rel='stylesheet' type='text/css'>
+
+</head>
+<body style="background-color:#F5F5F5  ;">
+<div class="banner-info"><h2>Data Query</h2></div>
+<div style="width:1000px;height:3200px;margin-left:auto;margin-right:auto;margin-top:100px">
+<h5>BranchNo : <input type="text" id="branchno" size="20px"><input type="submit" id="btn3" value="OK" onclick="click_1()"></h5>
+<h5>Detail :</h5>
+<div id="branchdetail" style="width:1000px;"></div>
+<br><hr/><br>
+<br>
+<h5>City: <input type="text" id="city" size="20px"><input type="submit" id="btn3" value="OK" onclick="click_2()"></h5>
+<table><tr><td width="450px"><h5>Total number of branches in the city :</h5></td><td><h5 id="branchnumber"></h5></td></tr></table>
+<br><hr/>
+<br>
+<h5>BranchNo : <input type="text" id="branchno_1" size="20px"><input type="submit" id="btn3" value="OK" onclick="click_3()"></h5>
+<h5>Details of staff at the branch :</h5>
+<div id="staffdetail"></div>
+<br><hr><br>
+<h5>Identify the total number of staff and the sum of their salaries.<input type="submit" id="btn3" value="OK" onclick="click_4()"></h5>
+<div id="total"></div><br><hr><br>
+<h5>City : <input type="text" id="city_1" size="20px"><input type="submit" id="btn3" value="OK" onclick="click_5()"></h5>
+<h5>Total number of staff in each position at branches in the city :</h5>
+<div id="option5"></div><br><hr><br>
+<h5>List the name of each Manager at each branch.<input type="submit" id="btn3" value="GET" onclick="click_6()"></h5>
+<div id="option6"></div><br><hr><br>
+<h5>Supervisor : <input type="text" id="supervisor" size="20px"><input type="submit" id="btn3" value="OK" onclick="click_7()"></h5>
+<h5>Names of staff supervised by the Supervisor : </h5>
+<div id="option7"></div><br><hr><br>
+<h5>City : <input type="text" id="city_2" size="20px"><input type="submit" id="btn3" value="OK" onclick="click_8()"></h5>
+<h5>Details of properties in the city : </h5>
+<div id="option8"></div>
+<br><hr><br>
+<h5>Staff Name : <input type="text" id="sname" size="20px"><input type="submit" id="btn3" value="OK" onclick="click_9()"></h5>
+<h5>Details of properties managed by the staff : </h5>
+<div id="option9"></div>
+<br><hr><br>
+<h5>BranchNo : <input type="text" id="branchno_2" size="20px"><input type="submit" id="btn3" value="OK" onclick="click_10()"></h5>
+<h5>The total number of properties assigned to each staff at the branch : </h5>
+<div id="option10"></div>
+<br><hr><br>
+<h5>BranchNo : <input type="text" id="branchno_3" size="20px"><input type="submit" id="btn3" value="OK" onclick="click_11()"></h5>
+<h5>The details of properties provided by business owners at the branch : </h5>
+<div id="option11"></div>
+<br><hr><br>
+<h5>Identify the total number of properties of each type at all branches.<input type="submit" id="btn3" value="GET" onclick="click_12()"></h5>
+<div id="option12"></div><br><hr><br>
+<h5>Identify the details of private property owners that provide more than one property
+for rent.<input type="submit" id="btn3" value="GET" onclick="click_13()"></h5>
+<div id="option13"></div><br><hr><br>
+<h5>City : <input type="text" id="city_3" size="20px">
+<input type="submit" id="btn3" value="OK" onclick="click_14()"></h5>
+<h5>Flats with at least three rooms and with a monthly rent no higher than £350
+in the city :</h5>
+<div id="option14"></div><br><hr><br>
+<h5>BranchNo : <input type="text" id="branchno_4" size="20px">
+<input type="submit" id="btn3" value="OK" onclick="click_15()"></h5>
+<h5>Details of clients at the branch :</h5>
+<div id="option15"></div><br><hr><br>
+<h5>Identify the properties that have been advertised more than the average number of times.
+<input type="submit" id="btn3" value="GET" onclick="click_16()"></h5>
+<div id="option16"></div><br><hr><br>
+<h5>List the total number of leases with rental periods that are less than one year at
+branches in London.
+<input type="submit" id="btn3" value="GET" onclick="click_17()"></h5>
+<div id="option17"></div><br><hr><br>
+<h5>List the total possible daily rental for property at each branch, ordered by branch
+number.
+<input type="submit" id="btn3" value="GET" onclick="click_18()"></h5>
+<div id="option18"></div><br><hr><br>
+</div>
+<script type="text/javascript">
+function sendmsg(url,divid) {
+		var xmlhttp;
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		} else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+		}
+		
+		xmlhttp.open("GET", url, true);
+		xmlhttp.onreadystatechange = function(){
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+			if (xmlhttp.responseText == "No relative data!"|| xmlhttp.responseText == "Login first!") {
+				alert(xmlhttp.responseText);
+				return false;
+			}
+			
+			document.getElementById(divid).innerHTML = xmlhttp.responseText;
+		}
+		};
+		xmlhttp.send(null);
+	}
+
+
+	function click_1() {
+		//   alert("Hi.............");
+		var branchno = document.getElementById("branchno").value;
+		if (branchno == "") {
+			alert("Please enter the branchno!");
+			return false;
+		}
+
+		var url = "servlet/transactionServlet?branchno=" + branchno
+				+ "&&option=1";
+		sendmsg(url,"branchdetail");
+
+	}
+	function click_2(){
+		var city = document.getElementById("city").value;
+		if (city == "") {
+			alert("Please enter the city!");
+			return false;
+		}
+
+		var url = "servlet/transactionServlet?city=" + city
+				+ "&&option=2";
+		sendmsg(url,"branchnumber");
+	}
+	function click_3(){
+		var branchno = document.getElementById("branchno_1").value;
+		if (branchno == "") {
+			alert("Please enter the branchno!");
+			return false;
+		}
+
+		var url = "servlet/transactionServlet?branchno=" + branchno
+				+ "&&option=3";
+		sendmsg(url,"staffdetail");
+	}
+	
+	function click_4(){
+		var url = "servlet/transactionServlet?option=4";
+		sendmsg(url,"total");	
+	}
+	function click_5(){
+	var city = document.getElementById("city_1").value;
+	var url = "servlet/transactionServlet?option=5&&city="+city;
+	sendmsg(url,"option5");
+	}
+	function click_6(){
+	var url = "servlet/transactionServlet?option=6";
+	sendmsg(url,"option6");
+	}
+	function click_7(){
+	var supervisor = document.getElementById("supervisor").value;
+	var url = "servlet/transactionServlet?option=7&&supervisor="+supervisor;
+	sendmsg(url,"option7");
+	}
+	function click_8(){
+	var city = document.getElementById("city_2").value;
+	var url = "servlet/transactionServlet?option=8&&city="+city;
+	sendmsg(url,"option8");
+	}
+	function click_9(){
+	var name = document.getElementById("sname").value;
+	var url = "servlet/transactionServlet?option=9&&name="+name;
+	sendmsg(url,"option9");
+	}
+	function click_10(){
+	var branchno = document.getElementById("branchno_2").value;
+	var url = "servlet/transactionServlet?option=10&&branchno="+branchno;
+	sendmsg(url,"option10");
+	}
+	function click_11(){
+	var branchno = document.getElementById("branchno_3").value;
+	var url = "servlet/transactionServlet?option=11&&branchno="+branchno;
+	sendmsg(url,"option11");
+	}
+	function click_12(){
+	var url = "servlet/transactionServlet?option=12";
+	sendmsg(url,"option12");
+	}
+	function click_13(){
+	var url = "servlet/transactionServlet?option=13";
+	sendmsg(url,"option13");
+	}
+	function click_14(){
+	var city=document.getElementById("city_3").value;
+	var url = "servlet/transactionServlet?option=14&&city="+city;
+	sendmsg(url,"option14");
+	}
+	function click_15(){
+	var branchno=document.getElementById("branchno_4").value;
+	var url = "servlet/transactionServlet?option=15&&branchno="+branchno;
+	sendmsg(url,"option15");
+	}
+	function click_16(){
+	var url = "servlet/transactionServlet?option=16";
+	sendmsg(url,"option16");
+	}
+	function click_17(){
+	var url = "servlet/transactionServlet?option=17";
+	sendmsg(url,"option17");
+	}
+	function click_18(){
+	var url = "servlet/transactionServlet?option=18";
+	sendmsg(url,"option18");
+	}
+</script>
+</body>
+</html>

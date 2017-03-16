@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Staff Insert</title>
+<link href="./css/bootstrap.css" rel="stylesheet" type="text/css"
+	media="all">
+<link href="./css/style.css" rel="stylesheet" type="text/css"
+	media="all" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Questrial'
+	rel='stylesheet' type='text/css'>
+<link href="./css/popuo-box.css" rel="stylesheet" type="text/css"
+	media="all" />
+<script src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/move-top.js"></script>
+<script type="text/javascript" src="./js/easing.js"></script>
+</head>
+
+<body>
+    <div class="design">
+		<div class="container">
+			<h2>choose the table and insert new values</h2>
+			<div class="tabs-box">
+			<ul class="tabs-menu">
+				<li class="active1"><a href="#tab1">Property</a></li>
+				<li><a href="#tab2">Client</a></li>
+				<li><a href="#tab3">Viewing</a></li>
+				<li><a href="#tab4">Lease</a></li>
+			</ul><div class="tab-grids">
+				<div id="tab1" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		  <h3>Property</h3>
+		<br><br><br> 
+        <form name="ps" onsubmit="return false"> 
+				<div class="col-md-6">
+                    				
+							<input type="text" id="propertyno" class="text" value=" Enter the propertyNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the propertyNo';}">
+					
+                    				
+							<input type="text" id="city" class="text" value=" Enter the city" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the city';}">
+									
+							<input type="text" id="type" class="text" value=" Enter the type" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the type';}">
+								
+							<input type="text" id="rent" class="text" value=" Enter the rent" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the rent ';}">
+					
+					        <input type="text" id="staffno" class="text" value=" Enter the staffNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the staffNo';}">
+									
+			   </div>
+			<div class="col-md-6">
+                    					
+							<input type="text" id="street" class="text" value=" Enter the street" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the street';}">
+                            <input type="text" id="postcode" class="text" value=" Enter the postcode" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the postcode';}">			
+										
+							<input type="text" id="rooms" class="text" value=" Enter the number of rooms" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the number of rooms';}">
+									
+							<input type="text" id="ownerno" class="text" value=" Enter the ownerNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the ownerNo';}">
+									
+							<input type="text" id="branchno" class="text" value=" Enter the branchNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the branchNo';}">
+              </div>
+                    <div class="button">
+
+					<div style="margin-left:auto;margin-right:auto;width:185px">						
+							<input type="submit" value="Submit" onclick="check_1()">	
+					</div>
+                    </div>
+                    </form>
+		</div>	
+        </div>
+</div>
+<script language="javascript">
+function check_1(){
+            
+            var propertyno=document.getElementById("propertyno").value;    
+			var street=document.getElementById("street").value;
+			var city=document.getElementById("city").value;
+			var postcode=document.getElementById("postcode").value;
+			var type=document.getElementById("type").value;
+			var rooms=document.getElementById("rooms").value;
+			var rent=document.getElementById("rent").value;
+			var ownerno=document.getElementById("ownerno").value;
+			var staffno=document.getElementById("staffno").value;
+			var branchno=document.getElementById("branchno").value;
+                            if(propertyno==" Enter the propertyNo")
+                            {
+                            alert("Please enter the propertyNo.");
+                            return false;
+                            }
+                            if(street==" Enter the street")
+                            {
+                            alert("Please enter the street.");
+                            return false;
+                            }                            
+                            if(city==" Enter the city")
+                            {
+                            alert("Please enter the city");
+                            return false;
+                            }                           
+                            if(postcode==" Enter the postcode")
+                            {
+                            alert("Please enter the postcode.");
+                            return false;
+                            }                            
+                            if(type==" Enter the type")
+                            {
+                            alert("Please enter the type.");
+                            return false;
+                            }                            
+                            if(rent==" Enter the rent")
+                            {
+                            alert("Please enter the rent.");
+                            return false;
+                            }                            
+                            if(staffno==" Enter the staffNo")
+                            {
+                            staffno="";
+                            }                            
+                            if(rooms==" Enter the number of rooms")
+                            {
+                            alert("Please enter the number of rooms.");
+                            return false;
+                            }
+                            if(ownerno==" Enter the ownerNo")
+                            {
+                            alert("Please enter the ownerno.");
+                            return false;
+                            }
+                            if(branchno==" Enter the branchNo")
+                            {
+                            alert("Please enter the branchNo.");
+                            return false;
+                            }
+            var xmlhttp;
+			if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		} else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+		}
+
+		xmlhttp.open("POST", "servlet/insertServlet", true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				alert(xmlhttp.responseText);
+			}
+		};
+
+		xmlhttp.send("propertyno=" + propertyno
+				+ "&&street=" + street + "&&city=" + city + "&&postcode="
+				+ postcode + "&&type=" + type + "&&rooms=" + rooms
+				+ "&&rent=" + rent + "&&ownerno=" + ownerno + "&&staffno="
+				+ staffno + "&&branchno=" + branchno+ "&&table=property" );
+	                       
+ }
+                    </script>
+				<div id="tab2" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		  <h3>Client</h3>
+		<br><br><br> 
+        <form> 
+				<div class="col-md-6">
+            				
+							<input type="text" class="text" value=" Enter the clientNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the clientNo';}">
+					
+							<input type="text" class="text" value=" Enter the telNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the telNo';}">
+				    		
+							<input type="text" class="text" value=" Enter maximum rent the client is prepared to pay" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter maximum rent the client is prepared to pay';}">
+                            
+                          
+                            
+                    
+									
+			   </div>
+			<div class="col-md-6">
+                    
+							<input type="text" class="text" value=" Enter client name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter client name';}">
+                      
+							<input type="text" class="text" value=" Enter preferred type of accommodation" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter preferred type of accommodation';}">
+					
+							<input type="text" class="text" value=" Enter staff salary" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter staff salary';}">                            
+									
+           </div>
+                    <div class="button">
+
+					<div style="margin-left:auto;margin-right:auto;width:185px";>						
+							<input type="submit" value="Submit">	
+					</div>
+                    </div>
+                    </form>
+		</div>	
+        </div>
+	</div>
+
+				</div>
+<div id="tab3" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		  <h3>Viewing</h3>
+		<br><br><br> 
+        <form> 
+				<div class="col-md-6">
+                    				
+							<input type="text" class="text" value=" Enter the clientNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the clientNo';}">
+					
+							<input type="text" class="text" value="Enter the view date (yyyy-mm-dd)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter the view date (yyyy-mm-dd)';}">
+				    		
+							
+
+			   </div>
+			<div class="col-md-6">
+                    
+							<input type="text" class="text" value=" Enter the propertyNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the propertyNo';}">
+                          
+							<input type="text" class="text" value=" Enter the comment from client " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the comment from client';}">						
+							
+									
+              </div>
+                    <div class="button">
+
+					<div style="margin-left:auto;margin-right:auto;width:185px";>						
+							<input type="submit" value="Submit">	
+					</div>
+                    </div>
+       </form>
+		</div>	
+        </div>
+
+				</div>
+				<div id="tab4" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		   <h3>Lease</h3>
+		<br><br><br> 
+        <form> 
+				<div class="col-md-6">
+                    				
+							<input type="text" class="text" value=" Enter the leaseNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the leaseNo';}">
+					
+							<input type="text" class="text" value="Enter the propertyNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter the propertyNo';}">
+				    		
+							<input type="text" class="text" value=" Whether the deposit has been paid: Y / N" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Whether the deposit has been paid: Y / N';}">
+                            <input type="text" class="text" value=" The start date (yyyy-m-dd) " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' The start date (yyyy-m-dd)';}">
+
+			   </div>
+			<div class="col-md-6">
+                    
+							<input type="text" class="text" value=" Enter the clientNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the clientNo';}">
+                          
+							<input type="text" class="text" value=" Enter method of payment " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter method of payment';}">
+						
+							<input type="text" class="text" value=" Enter the duration of lease" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the duration of lease';}">
+                            
+                            <input type="text" class="text" value=" The finish date (yyyy-m-dd) " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' The finish date (yyyy-m-dd)';}">
+									
+              </div>
+                    <div class="button">
+
+					<div style="margin-left:auto;margin-right:auto;width:185px";>						
+							<input type="submit" value="Submit">	
+					</div>
+                    </div>
+       </form>
+		</div>	
+        </div>
+	</div>
+
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+        <script>
+			$(document).ready(function() {
+				$("#tab2").hide();
+				$("#tab3").hide();
+				$("#tab4").hide();
+				$(".tabs-menu a").click(function(event){
+					$(this).parent().addClass("active1 a");
+					$(this).parent().siblings().removeClass("active1 a");
+					event.preventDefault();
+					var tab=$(this).attr("href");
+					$(".tab-grid").not(tab).css("display","none");
+					$(tab).fadeIn("slow");
+				});
+				
+			});
+		</script>
+
+
+</body>
+</html>

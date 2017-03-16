@@ -1,0 +1,316 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Branch Insert</title>
+<link href="./css/bootstrap.css" rel="stylesheet" type="text/css"
+	media="all">
+<link href="./css/style.css" rel="stylesheet" type="text/css"
+	media="all" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Questrial'
+	rel='stylesheet' type='text/css'>
+<link href="./css/popuo-box.css" rel="stylesheet" type="text/css"
+	media="all" />
+<script src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/move-top.js"></script>
+<script type="text/javascript" src="./js/easing.js"></script>
+</head>
+
+<body>
+    <div class="design">
+		<div class="container">
+			<h2>choose the table and insert new values</h2>
+			<div class="tabs-box">
+			<ul class="tabs-menu">
+				<li class="active1"><a href="#tab1">Branch</a></li>
+				<li><a href="#tab2">Staff</a></li>
+				<li><a href="#tab3">Lease</a></li>
+				<li><a href="#tab4">Advert</a></li>
+			</ul><div class="tab-grids">
+				<div id="tab1" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		  <h3>Branch</h3>
+		<br><br><br> 
+        <form name="bb" action="servlet/insertServlet?table=branch" method="post"> 
+				<div class="col-md-6">
+                    				
+							<input type="text" name="branchno" class="text" value=" Enter the branchNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the branchNo';}">
+					                    				
+							<input type="text" name="city" class="text" value=" Enter the city" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the city';}">
+									
+							<input type="text" name="telno1" class="text" value=" Enter telNo1" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter telNo1';}">
+								
+							<input type="text" name="telno3" class="text" value=" Enter telNo3 (optional)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter telNo3 (optional)';}">
+					
+									
+			   </div>
+			<div class="col-md-6">
+                    					
+							<input type="text" name="street" class="text" value=" Enter the street" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the street';}">
+                            <input type="text" name="postcode" class="text" value=" Enter the postcode" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the postcode';}">			
+										
+							<input type="text" name="telno2" class="text" value=" Enter telNo2 (optional)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter telNo2 (optional)';}">
+									
+							<input type="text" name="manager" class="text" value=" Enter the manager name (optional)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the manager name (optional)';}">
+										
+              </div>
+                    <div class="button">
+
+					<div style="margin-left:auto;margin-right:auto;width:185px";>						
+							<input type="submit" value="Submit" onclick="check_1()">	
+					</div>
+                    </div>
+                    </form>
+                    <script language="javascript">
+                            function check_1(){
+                            if(bb.branchno.value==" Enter the branchNo")
+                            alert("Please enter the branchno.");
+                            if(bb.street.value==" Enter the street")
+                            alert("Please enter the street.");
+                            if(bb.city.value==" Enter the city")
+                            alert("Please enter the city");
+                            if(bb.postcode.value==" Enter the postcode")
+                            alert("Please enter the postcode.");
+                            if(bb.telno1.value==" Enter telNo1")
+                            alert("Please enter the telNo.");
+                            if(bb.telno2.value==" Enter telNo2 (optional)")
+                            bb.telno2.value="";
+                            if(bb.telno3.value==" Enter telNo3 (optional)")
+                            bb.telno3.value="";
+                            if(bb.manager.value==" Enter the manager name (optional)")
+                            bb.manager.value="";
+                            }
+                    </script>
+		</div>	
+        </div>
+</div>
+
+				<div id="tab2" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		  <h3>Staff</h3>
+		<br><br><br> 
+        <form name="sb" action="servlet/insertServlet?table=staff" method="post"> 
+				<div class="col-md-6">
+            				
+							<input type="text" name="staffno" class="text" value=" Enter the staffNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the staffNo';}">
+					
+							<input type="text" name="position" class="text" value=" Enter staff position" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter staff position';}">
+				    		
+							<input type="text" name="dob" class="text" value=" Date Of Birth (yyyy-mm-dd)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Date Of Birth (yyyy-mm-dd)';}">
+                            
+                            <input type="text" name="branchno" class="text" value=" Enter the branchNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the branchNo';}">
+                            
+                            <input type="text" name="ad" class="text" value=" Assumed Date (yyyy-mm-dd , optional)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Assumed Date (yyyy-mm-dd , optional) ';}">
+                    
+									
+			   </div>
+			<div class="col-md-6">
+                    
+							<input type="text" name="name" class="text" value=" Enter the name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the name';}">
+                      
+							<input type="text" name="sex" class="text" value=" Sex: F / M" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Sex: F / M';}">
+					
+							<input type="text" name="salary" class="text" value=" Enter the salary" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the salary';}">
+                            
+                            <input type="text" name="supervisor" class="text" value=" Enter the supervisor (optional)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the supervisor (optional)';}">
+                            
+									
+              </div>
+									<div class="button">
+										<div style="margin-left:auto;margin-right:auto;width:185px";>
+											<input type="submit" value="Submit" onclick="check_2()">
+										</div>
+									</div>
+								</form>
+                    <script language="javascript">
+                            function check_2(){
+                            if(sb.staffno.value==" Enter the staffNo"){
+                            alert("Please enter the staffno.");
+                            return false;
+                            }
+                            
+                            if(sb.position.value==" Enter staff position"){
+                            alert("Please enter the position.");
+                            return false;
+                            }
+                            
+                            if(sb.dob.value==" Date Of Birth (yyyy-mm-dd)"){
+                            alert("Please enter the date of birth");
+                            return false;
+                            }
+                            
+                            if(sb.branchno.value==" Enter the branchNo"){
+                            alert("Please enter the branchNo.");
+                            return false;
+                            }
+                            
+                            if(sb.name.value==" Enter the name"){
+                            alert("Please enter staff's name.");
+                            return false;
+                            }
+                            
+                            if(sb.sex.value==" Sex: F / M"){
+                            alert("Please enter the sex.");
+                            return false;
+                            }
+                            
+                            if(sb.salary.value==" Enter the salary"){
+                            alert("Please enter staff's salary.");
+                            return false;
+                            }
+                            
+                            if(sb.supervisor.value==" Enter the supervisor (optional)"){
+                            sb.supervisor.value="";
+                            return false;
+                            }
+                            
+                            if(sb.ad.value==" Assumed Date (yyyy-mm-dd , optional)"){
+                            sb.ad.value="";
+                            return false;
+                            }
+                            
+                            
+                            }
+                    </script>
+		</div>	
+        </div>
+	</div>
+
+				</div>
+<div id="tab3" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		  <h3>Lease</h3>
+		<br><br><br> 
+        <form name="lb" action="servlet/insertServlet?table=lease" method="post"> 
+				<div class="col-md-6">
+                    				
+							<input type="text" name="leaseno" class="text" value=" Enter the leaseNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the leaseNo';}">
+					
+							<input type="text" name="propertyno" class="text" value=" Enter the propertyNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the propertyNo';}">
+				    		
+							<input type="text" name="deposit" class="text" value=" Whether the deposit has been paid: Y / N" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Whether the deposit has been paid: Y / N';}">
+                            <input type="text" name="sd" class="text" value=" Start date (yyyy-m-dd)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Start date (yyyy-m-dd)';}">
+
+			   </div>
+			<div class="col-md-6">
+                    
+							<input type="text" name="clientno" class="text" value=" Enter the clientNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the clientNo';}">
+                          
+							<input type="text" name="method" class="text" value=" Enter method of payment" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter method of payment';}">
+						
+							<input type="text" name="duration" class="text" value=" Enter the duration of the lease" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the duration of the lease';}">
+                            
+                            <input type="text" name="fd" class="text" value=" Finish date (yyyy-m-dd)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Finish date (yyyy-m-dd)';}">
+									
+              </div>
+                    <div class="button">
+
+					<div style="margin-left:auto;margin-right:auto;width:185px";>						
+							<input type="submit" value="Submit" onclick="check_3()">	
+					</div>
+                    </div>
+       </form>
+       <script language="javascript">
+                            function check_3(){
+                            if(lb.leaseno.value==" Enter the leaseNo")
+                            alert("Please enter the leaseNo.");
+                            if(lb.propertyno.value==" Enter the propertyNo")
+                            alert("Please enter the propertyNo.");
+                            if(lb.deposit.value==" Whether the deposit has been paid: Y / N")
+                            alert("Please enter the indication of whether the deposit has been paid.");
+                            if(lb.sd.value==" Start date (yyyy-m-dd)")
+                            alert("Please enter the start date of the lease.");
+                            if(lb.clientno.value==" Enter the clientNo")
+                            alert("Please enter the clientNo.");
+                            if(lb.method.value==" Enter method of payment")
+                            alert("Please enter the method of payment.");
+                            if(lb.duration.value==" Enter the duration of the lease")
+                            alert("Please enter the duration of the lease.");
+                            if(lb.fd.value==" Finish date (yyyy-m-dd)")
+                            alert("Please enter the finish date of the lease.");
+
+                            }
+        </script>
+		</div>	
+        </div>
+
+				</div>
+				<div id="tab4" class="tab-grid">
+					<div class="contact" id="contact">
+		<div class="container">
+		  <h3>Advert</h3>
+		<br><br><br> 
+        <form name="ab" action="servlet/insertServlet?table=advert" method="post"> 
+				<div class="col-md-6">
+                    				
+							<input type="text" name="propertyno" class="text" value=" Enter the propertyNo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the propertyNo';}">
+					
+							<input type="text" name="ad" class="text" value=" Enter the advertise date (yyyy-mm-dd)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the advertise date (yyyy-mm-dd)';}">
+				    		
+						
+                    </div>
+									
+			  
+			<div class="col-md-6">
+                    
+							<input type="text" name="newspapername" class="text" value=" Enter the newspaper name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the newspaper name';}">
+                     
+							<input type="text" name="cost" class="text" value=" Enter the cost" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Enter the cost';}">
+					
+							
+					</div>					
+              
+                    <div class="button">
+
+					   <div style="margin-left:auto;margin-right:auto;width:185px";>						
+							<input type="submit" value="Submit" onclick="check_4">	
+					   </div>
+                    </div>
+             </form>
+             <script language="javascript">
+                            function check_4(){
+                            if(ab.propertyno.value==" Enter the propertyNo")
+                            alert("Please enter the leaseNo.");
+                            if(ab.ad.value==" Enter the advertise date (yyyy-mm-dd)")
+                            alert("Please enter the advertise date.");
+                            if(ab.newspapername.value==" Enter the newspaper name")
+                            alert("Please enter the newspaper name.");
+                            if(ab.cost.value==" Enter the cost")
+                            alert("Please enter the cost.");
+                           }
+             </script>
+		</div>	
+        </div>
+	</div>
+
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+        <script>
+			$(document).ready(function() {
+				$("#tab2").hide();
+				$("#tab3").hide();
+				$("#tab4").hide();
+				$(".tabs-menu a").click(function(event){
+					$(this).parent().addClass("active1 a");
+					$(this).parent().siblings().removeClass("active1 a");
+					event.preventDefault();
+					var tab=$(this).attr("href");
+					$(".tab-grid").not(tab).css("display","none");
+					$(tab).fadeIn("slow");
+				});
+				
+			});
+		</script>
+
+
+</body>
+</html>
